@@ -147,8 +147,4 @@ University of Sargodha
 
 This project was developed for educational purposes and academic learning.
 
-```
 
-```
-
----

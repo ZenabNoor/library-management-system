@@ -1,127 +1,135 @@
+
 # 📚 Library Management System
 
-A desktop-based **Library Management System** developed in **Python** using **CustomTkinter** for the graphical user interface and **MySQL** as the backend database. The system allows librarians to efficiently manage books, members, book issuing/returning, and transaction records through an intuitive interface.
+A desktop-based Library Management System developed in Python using CustomTkinter for the graphical user interface and MySQL as the backend database. The system allows librarians to efficiently manage books, members, book issuing/returning, and transaction records through an intuitive interface.
+
+```
 
 ---
 
 ## ✨ Features
 
-- 📖 View complete book catalog
-- 🔍 Search books by title
-- ➕ Add new books
-- 📈 Update book stock
-- 🗑️ Remove books
-- 👤 Register new library members
-- 👥 View all members
-- 📤 Issue books to members
-- 📥 Return issued books
-- 📋 View transaction history
-- 📊 Display library statistics
+* 📖 **View Book Catalog:** Browse complete book collection with stock levels.
+* 🔍 **Search Functionality:** Quickly search books by title.
+* ➕ **Book Management:** Add new books, update stock counts, or remove records.
+* 👤 **Member Tracking:** Register new library members and view all members.
+* 📤 **Issue & Return System:** Process book issuance and track returns dynamically.
+* 📋 **Transaction History:** View complete transaction logs and history.
+* 📊 **Library Statistics:** Display real-time library usage statistics.
 
 ---
 
 ## 🛠️ Technologies Used
 
-- Python 3
-- CustomTkinter
-- Tkinter
-- MySQL
-- MySQL Connector for Python
+* **Python 3**
+* **CustomTkinter** (Modern GUI toolkit)
+* **Tkinter**
+* **MySQL** & **MySQL Connector for Python**
 
 ---
 
 ## 📂 Database Structure
 
-The project uses a MySQL database named **projectdb** with the following tables:
+The project connects to a MySQL database named `projectdb` featuring three main tables:
 
-### BOOK
-| Column | Description |
-|---------|-------------|
-| ISBN | Primary Key |
-| TITLE | Book Title |
-| AUTHOR | Author Name |
-| STOCK | Available Copies |
+### `BOOK`
 
-### MEMBER
 | Column | Description |
-|---------|-------------|
-| MEMBER_ID | Primary Key |
-| MEMBER_NAME | Member Name |
+| --- | --- |
+| **`ISBN`** | Primary Key |
+| **`TITLE`** | Book Title |
+| **`AUTHOR`** | Author Name |
+| **`STOCK`** | Available Copies |
 
-### TRANSACTIONS
+### `MEMBER`
+
 | Column | Description |
-|---------|-------------|
-| ISSUE_ID | Auto Increment Primary Key |
-| ISBN | Book ISBN |
-| COPY_ID | Copy Number |
-| MEMBER_ID | Member ID |
-| MEMBER_NAME | Member Name |
-| ISSUE_DATE | Date of Issue/Return |
-| TRANSACTION_TYPE | ISSUE or RETURN |
+| --- | --- |
+| **`MEMBER_ID`** | Primary Key |
+| **`MEMBER_NAME`** | Member Name |
+
+### `TRANSACTIONS`
+
+| Column | Description |
+| --- | --- |
+| **`ISSUE_ID`** | Auto Increment Primary Key |
+| **`ISBN`** | Book ISBN (Foreign Key) |
+| **`COPY_ID`** | Copy Number |
+| **`MEMBER_ID`** | Member ID (Foreign Key) |
+| **`MEMBER_NAME`** | Member Name |
+| **`ISSUE_DATE`** | Date of Issue/Return |
+| **`TRANSACTION_TYPE`** | `ISSUE` or `RETURN` |
 
 ---
 
-## 📦 Installation
+## 📦 Installation & Setup
 
-1. Clone the repository.
-
+1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/library-management-system.git
+git clone [https://github.com/ZenabNoor/library-management-system.git](https://github.com/ZenabNoor/library-management-system.git)
+cd library-management-system
+
 ```
 
-2. Install the required package.
 
+2. **Install required packages:**
 ```bash
 pip install customtkinter mysql-connector-python
+
 ```
 
-3. Create the MySQL database.
 
+3. **Database Configuration:**
+* Create a MySQL database named `projectdb`:
 ```sql
 CREATE DATABASE projectdb;
+
 ```
 
-4. Import or execute the SQL script to create the required tables.
 
-5. Update the MySQL credentials in the Python file if necessary.
-
+* Execute the SQL schema script located in the `/docs` or `/src` directory to set up the required tables.
+* Update your local MySQL credentials in `src/finaldb.py`:
 ```python
-host="localhost"
-user="root"
-password=""
-database="projectdb"
+host = "localhost"
+user = "root"
+password = "YOUR_MYSQL_PASSWORD"
+database = "projectdb"
+
 ```
 
-6. Run the application.
 
+
+
+4. **Run the Application:**
 ```bash
-python main.py
+python src/finaldb.py
+
 ```
+
+
 
 ---
 
-## 📸 User Interface
+## 📄 Project Documentation & Assets
 
-The application provides a modern dark-themed graphical interface with:
+All architecture diagrams and specifications can be found in their designated folders:
 
-- Sidebar navigation
-- Book catalog
-- Member management
-- Issue/Return system
-- Transaction history
-- Library statistics
+* 📁 **`docs/`** – Contains SRS, SDS, Test Plan, and Project Proposal documents.
+* 📁 **`diagrams/`** – Contains ER Diagrams, Data Flow Diagrams, and Use Case Diagrams.
+* 📁 **`media/`** – Contains the application demonstration video.
+* 📁 **`src/`** – Contains the core Python source code (`finaldb.py`).
 
 ---
 
 ## 📌 Future Improvements
 
-- User authentication (Admin Login)
-- Fine calculation for overdue books
-- Book cover images
-- Export reports to PDF/Excel
-- Search by ISBN or Author
-- Due date reminders
-- Barcode support
+* [ ] User authentication (Admin Login system)
+* [ ] Fine calculation for overdue books
+* [ ] Book cover images support
+* [ ] Export reports to PDF/Excel
+* [ ] Search by ISBN or Author
+* [ ] Due date email reminders
+* [ ] Barcode reader integration
 
 ---
 
@@ -135,6 +143,12 @@ University of Sargodha
 
 ---
 
-## 📄 License
+## 📜 License
 
 This project was developed for educational purposes and academic learning.
+
+```
+
+```
+
+---
